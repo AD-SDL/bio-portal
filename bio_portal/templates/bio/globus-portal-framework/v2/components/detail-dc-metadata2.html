@@ -1,0 +1,87 @@
+<table class="table table-striped table-bordered">
+  <tbody>
+  {% block detail_general_metadata %}
+  {% load index %}
+  {% for key, value in result.items %}
+  {% if key != "wf_steps" and key != "project-slug" and key != "runs" %}
+  <tr>
+    
+    <td>{{key}}</td>
+    <td>{{value}}
+    {% if key == "target_color" %}
+    <img src={{target_color}} width="20%" height="20%">
+    {% elif key == "best_so_far" %}
+    
+    <img src={{best_color}} width="20%" height="20%">
+    {% endif %}
+    </td>
+   
+  </tr>
+  {% elif key == "runs" %}
+  <tr>
+    
+    <td>{{key}}</td>
+   <td> 
+  {%for run in value%}
+ 
+    <table class="table table-striped table-bordered">
+      <tbody>
+  
+        {% if forloop.counter0 <  real_plates|length %}
+   
+      <tr><td>real_plate</td><td><img src=  {{real_plates | index:forloop.counter0}} width = 50%></td></tr>
+       {% endif %}
+    
+       {% if forloop.counter0 <  exp_plates|length %}
+   
+       <tr><td>exp_plate</td><td><img src=  {{exp_plates | index:forloop.counter0}} width = 50%></td></tr>
+        {% endif %}
+  {%for runkey, runvalue in run.items %}
+  <tr>  
+    <td>{{runkey}}  </td>
+    <td> {{runvalue}} 
+    </td> 
+    
+    </tr>
+      {% endfor %}
+    
+     
+    </tbody>
+    </table>
+
+ 
+
+   
+      {% endfor %}
+ </td>
+</tr>
+
+
+    {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+<table class="table table-striped table-bordered">
+  wf_steps
+  <tbody>
+     
+    {% for flows in result.wf_steps %}
+          {% for step in flows%}  
+          <tr><td>{{step.name}}</td>
+  <td>
+            {% for tkey, tvalue in step.items %}
+  
+  {% if tkey != "name"%}
+    <b>{{tkey |safe}}</b>: {{tvalue}} <br></br>
+    {% endif %}
+    {% endfor %}
+  </td>
+  </tr>
+    {% endfor %}
+  {% endfor %}
+ 
+</tbody>
+</table>
+  {% endblock %}
+  
+ 
