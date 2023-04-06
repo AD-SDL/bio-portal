@@ -20,6 +20,7 @@ class BIOSearchView(SearchView):
                 "app config, or else the manifest.json will continue appearing "
                 "as a search result!"
             )
+        print(str(self.get_index_info()))
         return super().filters + filters
 
 

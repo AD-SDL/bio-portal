@@ -23,16 +23,16 @@ SEARCH_INDEXES = {
         "fields": [
             ("title", fields.title),
             "dc",
-            "files",
-            ("final_plates",fields.final_plates),
-            ("all_files",fields.all_files),
-            ("exp_type",fields.exp_type),
+        #    "files",
+           # ("final_plates",fields.final_plates),
+           # ("all_files",fields.all_files),
+           # ("exp_type",fields.exp_type),
             ("result", fields.results),
-            ("final_img", fields.final_img),
-            ("target_color", fields.target_color),
-            ("best_color", fields.best_color),
-            ("real_plates", fields.real_plates),
-            ("exp_plates", fields.exp_plates)
+           # ("final_img", fields.final_img),
+           # ("target_color", fields.target_color),
+           # ("best_color", fields.best_color),
+           # ("real_plates", fields.real_plates),
+            #("exp_plates", fields.exp_plates)
         ],
         "facets": [
             {
@@ -49,7 +49,7 @@ SEARCH_INDEXES = {
                   "name": "Experiment Type",
                   "field_name": "title",
     
-              }
+             }
         ],
         "facet_modifiers": [],
         "sort" : [
@@ -58,11 +58,11 @@ SEARCH_INDEXES = {
             }
         ],
         "default_filters": [
-            {
-                "type": "match_all",
-                "field_name": "project_metadata.project-slug",
-                "values": ['reports'],
-            }
+#            {
+ #               "type": "match_all",
+  #              "field_name": "project_metadata.project-slug",
+   #             "values": ['bio'],
+    #        }
         ]
         
     }

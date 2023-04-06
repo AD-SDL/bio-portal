@@ -2,9 +2,10 @@ from urllib.parse import urlsplit, urlunsplit, urlencode
 import re
 
 def title(result):
-    if not result[0].get("dc"):
+    if not result[0]["dc"]:
         return
-    t = result[0]["project_metadata"]
+    t = result[0]['dc']['titles'][0]["title"]
+    return t
     if not ("experiment" in t):
         """The title for this Globus Search subject"""
         return result[0]["dc"]["titles"][0]["title"]
@@ -62,7 +63,7 @@ def final_img(result):
     return fs
 
 def results(result):
-    return result[0]["project_metadata"]
+    return result[0]
 
 def exp_type(result):
     if "exp_type" in result[0]["project_metadata"]:
