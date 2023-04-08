@@ -8,16 +8,17 @@
     {% include './components/detail-dc-metadata2.html' %}
   </div>
 {% if exp_type == Null or exp_type == "color_picker"%}   
-    <div class="col-md-6">
-  {% for key, value in final_plates.items%}
+<div class="col-md-6">   
+  {% for key, value in chart.items%}
  
     
    <div style="padding-bottom:20px"> 
-    <h1>{{key}}</h1>
-    <img src={{value}} width="50%" >
+    
+    <img src={{value}} width="60%" >
   </div>
 {% endfor %}
 {% elif exp_type == "pcr" %}
+
 <div class="col-md-6">
   
    <div style="padding-bottom:20px"> 

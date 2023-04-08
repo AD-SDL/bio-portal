@@ -20,17 +20,17 @@ def all_files(result):
         new_files.append(new_url)
     return new_files
 
-def final_plates(result):
+def chart(result):
     fs = {}
     for f in all_files(result):
-        if re.match(".*plate_.\.jpg", f) or re.match(".*run_summary\.png", f):
+        if re.match(".*\.png", f):
             fs[f.split('/')[-1]] = f
     return fs
 
-def exp_plates(result):
+def pictures(result):
     fs = []
     for f in all_files(result):
-        if re.match(".*exp_plate.\.png", f):
+        if re.match(".*\.png", f):
             fs = [f] + fs    
     return fs
 
